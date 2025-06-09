@@ -3,3 +3,4 @@ venv
 myenv
 
 .env
+e-commerce-bot.egg_info
