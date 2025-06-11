@@ -4,5 +4,6 @@ langchain
 langchain-community
 langchain-core
 langchain-astradb
+langchain-google-genai
 
 -e.
