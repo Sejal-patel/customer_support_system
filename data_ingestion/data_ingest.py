@@ -3,8 +3,9 @@ from dotenv import load_dotenv
 import pandas
 import os
 
-from data_ingestion.data_transform import data_converter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
+from data_transform import data_converter
 
 load_dotenv()
 
@@ -28,7 +29,7 @@ class ingest_data:
         self.embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
         self.data_converter = data_converter()
 
-    def data_ingestion(self, status):
+    def data_ingestion1(self, status):
         print("data ingestion method")
         vstore = AstraDBVectorStore(
             embedding=self.embeddings,
@@ -52,4 +53,9 @@ class ingest_data:
 
     
 if __name__ == "__main__":
-    data = ingest_data()
+    ingest_data = ingest_data()
+    vstore, inserted_ids = ingest_data.data_ingestion1(None)
+    results = vstore.similarity_search("suggest me a low budget headphone")
+    for res in results:
+        print(f"{res.page_content} {res.metadata}")
+
