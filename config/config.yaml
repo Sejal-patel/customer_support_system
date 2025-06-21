@@ -1,5 +1,5 @@
 astra_db:
-  collection_name: "chatbotecomm"
+  collection_name: "chatbotecom"
 
 embedding_model:
   provider: "google"

@@ -37,3 +37,4 @@ class ModelLoader:
         llm_model = self.config['llm']['model_name']
         return ChatGoogleGenerativeAI(model=llm_model)
 
+
